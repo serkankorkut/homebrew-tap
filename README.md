@@ -1,5 +1,7 @@
 # homebrew-tap
 
+![Tokenmeter demo](docs/demo.gif)
+
 ```bash
 brew install serkankorkut/tap/tokenmeter
 ```
