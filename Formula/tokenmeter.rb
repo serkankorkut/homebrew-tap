@@ -3,8 +3,8 @@ class Tokenmeter < Formula
 
   desc "Token usage, cost and limits dashboard for Claude Code, Codex and Copilot CLI"
   homepage "https://github.com/serkankorkut/tokenmeter"
-  url "https://files.pythonhosted.org/packages/87/0b/2791d0c413a9e6a8f61d7e822da20bd775e1db63dc7c948213fb0fc30533/tokenmeter_dashboard-0.2.0.tar.gz"
-  sha256 "7de4aa98e1217c509fa80e3af796497ed85b71b58a06ebc9822d9fa338dcf046"
+  url "https://files.pythonhosted.org/packages/38/f4/5f1a07f194926c9d68c5fabf3a0631285a98dd8272a173eeaa96079ed5be/tokenmeter_dashboard-0.2.1.tar.gz"
+  sha256 "e8c9a9f2c10b92d07af79294b608d63cba491eb277eeb1464b292cbc23649fdd"
   license "MIT"
 
   depends_on "python@3.13"
@@ -21,6 +21,6 @@ class Tokenmeter < Formula
   end
 
   test do
-    assert_match "tokenmeter 0.2.0", shell_output("#{bin}/tokenmeter --version")
+    assert_match "tokenmeter 0.2.1", shell_output("#{bin}/tokenmeter --version")
   end
 end
