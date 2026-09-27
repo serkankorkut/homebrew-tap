@@ -3,8 +3,8 @@ class Tokenmeter < Formula
 
   desc "Token usage, cost and limits dashboard for Claude Code, Codex and Copilot CLI"
   homepage "https://github.com/serkankorkut/homebrew-tap"
-  url "https://github.com/serkankorkut/homebrew-tap/releases/download/v0.2.4/tokenmeter_dashboard-0.2.4.tar.gz"
-  sha256 "08178b2b2daaa09027fabc156e624ddb358e878e16b74d7d8f8c59709815e0b3"
+  url "https://github.com/serkankorkut/homebrew-tap/releases/download/v0.2.5/tokenmeter_dashboard-0.2.5.tar.gz"
+  sha256 "f369e3e4da6da3efa4f4a5089d7aa4eb9625c44070aa226fcffbf83aa895ab4a"
   license "MIT"
 
   depends_on "python@3.13"
@@ -21,6 +21,7 @@ class Tokenmeter < Formula
       Your dashboard lives at http://127.0.0.1:7788
       It keeps running in the background and starts again at login.
       Stop it any time with: tokenmeter stop
+      After an upgrade, run tokenmeter start again to switch to the new version.
     EOS
   end
 
@@ -32,6 +33,6 @@ class Tokenmeter < Formula
   end
 
   test do
-    assert_match "tokenmeter 0.2.4", shell_output("#{bin}/tokenmeter --version")
+    assert_match "tokenmeter 0.2.5", shell_output("#{bin}/tokenmeter --version")
   end
 end
