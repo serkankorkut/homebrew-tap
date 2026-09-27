@@ -1,4 +1,9 @@
-# Tokenmeter
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.png">
+    <img src="docs/logo-light.png" alt="Tokenmeter" width="360">
+  </picture>
+</p>
 
 [![Formula health](https://github.com/serkankorkut/homebrew-tap/actions/workflows/health.yml/badge.svg)](https://github.com/serkankorkut/homebrew-tap/actions/workflows/health.yml) [![PyPI](https://img.shields.io/pypi/v/tokenmeter-dashboard?label=pypi)](https://pypi.org/project/tokenmeter-dashboard/)
 
