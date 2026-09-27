@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: "0 6 * * 1,4"
   workflow_dispatch:
+concurrency:
+  group: health-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   install:
     name: ${{ matrix.os }}
@@ -14,6 +17,7 @@ jobs:
       matrix:
         os: [macos-latest, macos-15-intel, ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
     steps:
       - uses: Homebrew/actions/setup-homebrew@main
       - run: brew install --verbose serkankorkut/tap/tokenmeter
