@@ -16,14 +16,10 @@ This repository is the Homebrew tap. The same app is on PyPI as [tokenmeter-dash
 
 ```bash
 brew install serkankorkut/tap/tokenmeter
-tokenmeter --open
+tokenmeter start
 ```
 
-Keep it running in the background, restarted at login:
-
-```bash
-brew services start tokenmeter
-```
+`tokenmeter start` runs the dashboard in the background, starts it again at login, and opens http://127.0.0.1:7788 in your browser. Stop it with `tokenmeter stop`.
 
 ### Windows
 
@@ -33,7 +29,7 @@ Needs Python 3.9 or newer from [python.org](https://www.python.org/downloads/) o
 py -m pip install --user pipx
 py -m pipx ensurepath
 pipx install tokenmeter-dashboard
-tokenmeter --open
+tokenmeter start
 ```
 
 Open a new terminal after `ensurepath` so `tokenmeter` is on your PATH. Or run it without installing, using [uv](https://docs.astral.sh/uv/):
@@ -47,7 +43,7 @@ uvx --from tokenmeter-dashboard tokenmeter --open
 
 ```bash
 pipx install tokenmeter-dashboard
-tokenmeter --open
+tokenmeter start
 ```
 
 Without installing anything permanently:
@@ -63,7 +59,7 @@ python3 -m pip install tokenmeter-dashboard
 python3 -m tokenmeter --open
 ```
 
-The dashboard is at http://127.0.0.1:7788.
+The dashboard is at http://127.0.0.1:7788. `tokenmeter start` runs it in the background and opens it; plain `tokenmeter` runs it in the terminal until you press Ctrl+C.
 
 ### Upgrade and uninstall
 
@@ -102,11 +98,14 @@ brew gist-logs serkankorkut/tap/tokenmeter
 
 **It runs but a number looks wrong.** Open a [bug report](https://github.com/serkankorkut/homebrew-tap/issues/new?template=bug.yml) with `tokenmeter --version`.
 
+**Another app already uses port 7788.** Tokenmeter moves to the next free port up to 7798 and prints the address. To pick your own, run `tokenmeter start --port 8765`; it is remembered from then on.
+
 **The page at 127.0.0.1:7788 does not load.** Another copy may still be running from an older version. Stop whatever holds the port, then start again:
 
 ```bash
+tokenmeter stop
 lsof -ti :7788 | xargs kill
-tokenmeter --open
+tokenmeter start
 ```
 
 The formula is installed, tested and audited on Apple Silicon, Intel and Linux twice a week, so breakage from Homebrew or Python updates is usually caught before you hit it. The badge at the top shows the latest result.
@@ -168,7 +167,8 @@ Flags and environment variables:
 
 | Setting | Default | Purpose |
 |---|---|---|
-| `--port`, `TOKENMETER_PORT` | `7788` | Listen port |
+| `--port N` | `7788` | Listen port. With `start` it is saved, so the background service uses it too. Without a saved port, Tokenmeter tries 7788 and, if another app holds it, the next 10 ports |
+| `TOKENMETER_PORT` | | Port for this run only |
 | `--open` | | Open the browser after starting |
 | `--host` | `127.0.0.1` | Bind address. Use `0.0.0.0` only for a team server |
 | `--user NAME` | your login | Name shown in team mode |
