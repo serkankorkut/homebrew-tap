@@ -1,10 +1,14 @@
 # Tokenmeter
 
+[![Formula health](https://github.com/serkankorkut/homebrew-tap/actions/workflows/health.yml/badge.svg)](https://github.com/serkankorkut/homebrew-tap/actions/workflows/health.yml) [![PyPI](https://img.shields.io/pypi/v/tokenmeter-dashboard?label=pypi)](https://pypi.org/project/tokenmeter-dashboard/)
+
 ![Tokenmeter demo](docs/demo.gif)
 
 A local dashboard that shows token usage, real cost, cache misses and rate-limit windows for every prompt you send in **Claude Code**, **Codex** and **GitHub Copilot CLI**. Zero dependencies: one Python file, one HTML file, nothing leaves your machine.
 
 This repository is the Homebrew tap. The same app is on PyPI as [tokenmeter-dashboard](https://pypi.org/project/tokenmeter-dashboard/) for Windows, Linux and any machine with Python.
+
+[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:korkutserkan@outlook.com?subject=Tokenmeter)
 
 ## Install
 
@@ -69,6 +73,34 @@ The dashboard is at http://127.0.0.1:7788.
 | pipx | `pipx upgrade tokenmeter-dashboard` | `pipx uninstall tokenmeter-dashboard` |
 | uvx | runs the latest each time | nothing to remove |
 | pip | `python3 -m pip install -U tokenmeter-dashboard` | `python3 -m pip uninstall tokenmeter-dashboard` |
+
+## If something goes wrong
+
+**Homebrew install failed.** First rule out the usual causes:
+
+```bash
+brew update
+brew doctor
+```
+
+If it still fails, upload the build logs and paste the link it prints into an [install issue](https://github.com/serkankorkut/homebrew-tap/issues/new?template=install-failure.yml):
+
+```bash
+brew gist-logs serkankorkut/tap/tokenmeter
+```
+
+**pipx, uvx or pip install failed.** Run it again with `--verbose` and paste the last lines and your `python3 --version` into an [install issue](https://github.com/serkankorkut/homebrew-tap/issues/new?template=install-failure.yml).
+
+**It runs but a number looks wrong.** Open a [bug report](https://github.com/serkankorkut/homebrew-tap/issues/new?template=bug.yml) with `tokenmeter --version`.
+
+**The page at 127.0.0.1:7788 does not load.** Another copy may still be running from an older version. Stop whatever holds the port, then start again:
+
+```bash
+lsof -ti :7788 | xargs kill
+tokenmeter --open
+```
+
+The formula is installed, tested and audited on Apple Silicon, Intel and Linux twice a week, so breakage from Homebrew or Python updates is usually caught before you hit it. The badge at the top shows the latest result.
 
 ## What you get
 
@@ -159,6 +191,12 @@ On a shared machine: `tokenmeter --host 0.0.0.0` with `TOKENMETER_TOKEN` set. On
 ## Privacy
 
 Tokenmeter binds to `127.0.0.1`, reads your agents' logs read-only, keeps its index in memory, and sends nothing anywhere. No telemetry, no update check, no account. The only outbound request it can make is to Anthropic's usage endpoint, on macOS, when a Claude Code login token is already in your keychain. Team mode, if you turn it on, posts aggregates without prompt text to the server you name.
+
+## Feedback
+
+[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:korkutserkan@outlook.com?subject=Tokenmeter)
+
+Questions, ideas or a story about a surprising bill: korkutserkan@outlook.com.
 
 ## License
 

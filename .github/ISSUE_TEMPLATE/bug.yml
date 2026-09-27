@@ -1,0 +1,34 @@
+name: Bug or wrong number
+description: Tokenmeter runs, but something looks wrong
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "Output of `tokenmeter --version`."
+      placeholder: tokenmeter 0.2.2
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Windows, Linux]
+    validations:
+      required: true
+  - type: checkboxes
+    id: tools
+    attributes:
+      label: Which agents do you use?
+      options:
+        - label: Claude Code
+        - label: Codex
+        - label: GitHub Copilot CLI
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: What you expected, what you saw, and a screenshot if it helps. Please blur prompt text you do not want to share.
+    validations:
+      required: true

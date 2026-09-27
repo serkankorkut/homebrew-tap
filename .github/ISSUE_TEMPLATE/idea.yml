@@ -1,0 +1,10 @@
+name: Idea or request
+description: A feature, a new agent to support, or anything else
+labels: [idea]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would make Tokenmeter more useful?
+    validations:
+      required: true

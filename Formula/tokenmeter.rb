@@ -2,7 +2,7 @@ class Tokenmeter < Formula
   include Language::Python::Virtualenv
 
   desc "Token usage, cost and limits dashboard for Claude Code, Codex and Copilot CLI"
-  homepage "https://github.com/serkankorkut/tokenmeter"
+  homepage "https://github.com/serkankorkut/homebrew-tap"
   url "https://github.com/serkankorkut/homebrew-tap/releases/download/v0.2.2/tokenmeter_dashboard-0.2.2.tar.gz"
   sha256 "63027ba56820f1dd2b0bd5d755f3fd60c89abea6aeb7b6ec163b911de3bd33a4"
   license "MIT"
