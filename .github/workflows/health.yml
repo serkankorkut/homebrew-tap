@@ -20,6 +20,9 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: Homebrew/actions/setup-homebrew@main
+      - name: Remove python.org links that collide with Homebrew Python
+        if: runner.os == 'macOS'
+        run: find "$(brew --prefix)/bin" -lname '*/Library/Frameworks/Python.framework/*' -print -delete || true
       - run: brew install --verbose serkankorkut/tap/tokenmeter
       - run: brew test serkankorkut/tap/tokenmeter
       - run: brew audit --strict --online serkankorkut/tap/tokenmeter

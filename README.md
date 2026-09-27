@@ -83,6 +83,15 @@ brew update
 brew doctor
 ```
 
+On Intel Macs with the python.org installer's Python, Homebrew may stop with `Could not symlink bin/python3.13`. Let Homebrew's Python take over those links, then install again:
+
+```bash
+brew link --overwrite python@3.13
+brew reinstall serkankorkut/tap/tokenmeter
+```
+
+Intel Macs are a lower support tier in Homebrew, so some dependencies build from source there and the first install can take 15 minutes. Apple Silicon installs in about a minute.
+
 If it still fails, upload the build logs and paste the link it prints into an [install issue](https://github.com/serkankorkut/homebrew-tap/issues/new?template=install-failure.yml):
 
 ```bash
