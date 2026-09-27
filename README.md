@@ -19,7 +19,7 @@ brew install serkankorkut/tap/tokenmeter
 tokenmeter start
 ```
 
-`tokenmeter start` runs the dashboard in the background, starts it again at login, and opens http://127.0.0.1:7788 in your browser. Stop it with `tokenmeter stop`.
+`tokenmeter start` runs the dashboard in the background, starts it again at login, and opens http://127.0.0.1:7788 in your browser. Stop it with `tokenmeter stop`. On macOS this is a launchd agent named `fyi.tokenmeter`, on Linux a systemd user service; where neither is available it runs as a plain background process.
 
 ### Windows
 
@@ -65,10 +65,10 @@ The dashboard is at http://127.0.0.1:7788. `tokenmeter start` runs it in the bac
 
 | Installed with | Upgrade | Uninstall |
 |---|---|---|
-| Homebrew | `brew update && brew upgrade tokenmeter` | `brew uninstall tokenmeter` |
-| pipx | `pipx upgrade tokenmeter-dashboard` | `pipx uninstall tokenmeter-dashboard` |
+| Homebrew | `brew update && brew upgrade tokenmeter && tokenmeter start` | `tokenmeter stop && brew uninstall tokenmeter` |
+| pipx | `pipx upgrade tokenmeter-dashboard && tokenmeter start` | `tokenmeter stop && pipx uninstall tokenmeter-dashboard` |
 | uvx | runs the latest each time | nothing to remove |
-| pip | `python3 -m pip install -U tokenmeter-dashboard` | `python3 -m pip uninstall tokenmeter-dashboard` |
+| pip | `python3 -m pip install -U tokenmeter-dashboard && tokenmeter start` | `tokenmeter stop && python3 -m pip uninstall tokenmeter-dashboard` |
 
 ## If something goes wrong
 

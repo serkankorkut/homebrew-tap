@@ -32,6 +32,15 @@ jobs:
           for i in $(seq 1 20); do curl -fsS http://127.0.0.1:7799/api/health && break; sleep 1; done
           curl -fsS -o /dev/null http://127.0.0.1:7799/
           curl -fsS -o /dev/null http://127.0.0.1:7799/api/usage
+      - name: Background start and stop
+        env:
+          BROWSER: "true"
+        run: |
+          tokenmeter start --port 7811
+          curl -fsS http://127.0.0.1:7811/api/health
+          tokenmeter stop --port 7811
+          sleep 2
+          if curl -fsS -m 2 http://127.0.0.1:7811/api/health; then echo "still running after stop"; exit 1; fi
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
