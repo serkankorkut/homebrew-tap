@@ -13,7 +13,7 @@ A local dashboard that shows token usage, real cost, cache misses and rate-limit
 
 This repository is the Homebrew tap. The same app is on PyPI as [tokenmeter-dashboard](https://pypi.org/project/tokenmeter-dashboard/) for Windows, Linux and any machine with Python.
 
-[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:korkutserkan@outlook.com?subject=Tokenmeter)
+[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:tokenmeter.support@magnificalabs.dev?subject=Tokenmeter)
 
 ## Install
 
@@ -211,9 +211,9 @@ Tokenmeter binds to `127.0.0.1`, reads your agents' logs read-only, keeps its in
 
 ## Feedback
 
-[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:korkutserkan@outlook.com?subject=Tokenmeter)
+[![Report an issue](https://img.shields.io/badge/Report_an_issue-2a78d6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/serkankorkut/homebrew-tap/issues/new/choose) [![Contact](https://img.shields.io/badge/Contact-23262b?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:tokenmeter.support@magnificalabs.dev?subject=Tokenmeter)
 
-Questions, ideas or a story about a surprising bill: korkutserkan@outlook.com.
+Questions, ideas or a story about a surprising bill: tokenmeter.support@magnificalabs.dev.
 
 ## License
 
