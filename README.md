@@ -34,10 +34,10 @@ Needs Python 3.9 or newer from [python.org](https://www.python.org/downloads/) o
 py -m pip install --user pipx
 py -m pipx ensurepath
 pipx install tokenmeter-dashboard
-tokenmeter start
+& "$HOME\.local\bin\tokenmeter.exe" start
 ```
 
-Open a new terminal after `ensurepath` so `tokenmeter` is on your PATH. Or run it without installing, using [uv](https://docs.astral.sh/uv/):
+The first start uses the full path because the current terminal does not know about the new PATH yet. Open a new terminal after `ensurepath` so `tokenmeter` is on your PATH. Or run it without installing, using [uv](https://docs.astral.sh/uv/):
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -48,8 +48,11 @@ uvx --from tokenmeter-dashboard tokenmeter --open
 
 ```bash
 pipx install tokenmeter-dashboard
-tokenmeter start
+pipx ensurepath
+~/.local/bin/tokenmeter start
 ```
+
+`pipx ensurepath` adds `~/.local/bin` to your PATH for new terminals; until you open one, use the full path as above.
 
 Without installing anything permanently:
 
